@@ -1,1 +1,3 @@
-# mytinerary-back-liliagarcia
+# MY TINERARY APP
+
+## NODE.JS + EXPRESS.JS
