@@ -7,6 +7,7 @@
 import app from '../app.js';       //configuracion del servidor
 import debug from 'debug';      //modulo de debugeo
 import http from 'http';        //modulo para crear servidores HTTP
+import { connect } from 'mongoose';
 
 /**
  * Get port from environment and store in Express.
@@ -23,7 +24,13 @@ app.set('port', port);
  */
 // START SERVING
 let server = http.createServer(app);  //creo un servidor normalizado con HTTP
-let ready = () => console.log('server ready on port '+port)
+let ready = () => {
+  console.log('server ready on port '+port)
+  //connect('link de conexion de mongo')
+  connect(process.env.MONGO) //devuelve una promesa
+    .then(() => console.log('database connected'))
+    .catch(err => console.log(err))
+}
 
 server.listen(port, ready);           //con el metodo listen escucho el puerto para que empiece a funcionar (a levantarse)
 server.on('error', onError);
