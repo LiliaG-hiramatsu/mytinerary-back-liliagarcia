@@ -1,4 +1,5 @@
-import 'dotenv/config.js'                           //importo unicamente la conf de las variables de entorno. Tiene que estar arriba de todo
+import 'dotenv/config.js'        
+import './config/database.js'                   //importo unicamente la conf de las variables de entorno. Tiene que estar arriba de todo
 import __dirname from './utils.js';                 //importo la conf de la ubic del servidor
 //const createError = require('http-errors');
 import createError from 'http-errors';              //crear errores
