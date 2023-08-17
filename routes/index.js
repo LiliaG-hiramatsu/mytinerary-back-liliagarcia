@@ -1,15 +1,28 @@
 import express from 'express';
-import userRouter from './users.js'
+import usersRouter from './users.js'
+import citiesRouter from './cities.js'
+import itinerariesRouter from './itineraries.js'
+import activitiesRouter from './activities.js'
 
 let router = express.Router();
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Index' });
 });
 
-router.use('/users', userRouter)
+
+router.use('/users', usersRouter)
 // router.use acepta como min dos param para poder enrutar
 //1- la palabra con la que se va a enrutar
 //2- el enrutador que tengo que conectar
+
+router.use('/cities', citiesRouter)
+
+router.use('/itineraries', itinerariesRouter)
+
+router.use('/activities', activitiesRouter)
+
 export default router;

@@ -1,5 +1,5 @@
 import 'dotenv/config.js'        
-import './config/database.js'                   //importo unicamente la conf de las variables de entorno. Tiene que estar arriba de todo
+//import './config/database.js'                   //importo unicamente la conf de las variables de entorno. Tiene que estar arriba de todo
 import __dirname from './utils.js';                 //importo la conf de la ubic del servidor
 //const createError = require('http-errors');
 import createError from 'http-errors';              //crear errores
@@ -13,6 +13,8 @@ import logger from 'morgan';                        //para registrar cada una de
 //const indexRouter = require('./routes/index');
 import indexRouter from './routes/index.js';          //solo vamos a configurar las rutas del enrutador de back principal
                                                     //este enrutador va a llamar a todos los otros recursos (cities, intenenaries, etc.)
+import errorHandler from './middlewares/errorHandler.js';
+import notFoundHandler from './middlewares/notFoundHandler.js';
 
 let app = express();                                //ejecutando el modulo de express, creo una app de backend (servidor)
 
@@ -33,19 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));  //obligo al servidor a
 app.use('/api', indexRouter);                             //obligo al servidor a que use las rutas del enrutador principal con "/api" para diferenciar la ruta del front
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+app.use(notFoundHandler);
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.use(errorHandler);
 
 export default app
