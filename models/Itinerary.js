@@ -7,7 +7,7 @@ let schema = new Schema({
     "price": { type: Number, required: true },
     "duration": { type: Number, required: true },
     "tags": { type: Array },
-    "photo": { type: String, required: true }
+    "photo": { type: String } //required: true
 })
 
 let Itinerary = model(collection, schema)
