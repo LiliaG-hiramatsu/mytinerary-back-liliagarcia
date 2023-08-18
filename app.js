@@ -15,6 +15,7 @@ import indexRouter from './routes/index.js';          //solo vamos a configurar 
                                                     //este enrutador va a llamar a todos los otros recursos (cities, intenenaries, etc.)
 import errorHandler from './middlewares/errorHandler.js';
 import notFoundHandler from './middlewares/notFoundHandler.js';
+import cors from 'cors'                             //modulo para desbloquear las politicas de CORS (origenes cruzados: server del front 5173 y del back 8080)
 
 let app = express();                                //ejecutando el modulo de express, creo una app de backend (servidor)
 
@@ -29,6 +30,7 @@ app.use(logger('dev'));                                   //obligo al servidor a
 app.use(express.json());                                  //obligo alservidor a manipular/leer json
 app.use(express.urlencoded({ extended: false }));         //obliga al servidor a lerr params(:)/queries(?)
 //app.use(cookieParser());
+app.use(cors())                                           // obligo al servidor a desbloquear las politicas de cors
 app.use(express.static(path.join(__dirname, 'public')));  //obligo al servidor a usar los archivos estaticos de la carpeta public
 
 //ROUTER
