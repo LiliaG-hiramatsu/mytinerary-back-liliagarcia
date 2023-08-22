@@ -10,7 +10,8 @@ export default async (req, res, next) => {
             objetoDeBuqueda.admin_id = req.query.admin_id
         }
         if (req.query.city) {
-            objetoDeBuqueda.city = new RegExp(req.query.city, 'i')
+            objetoDeBuqueda.city = new RegExp('^' + req.query.city, 'i')
+            //console.log()
             //new RegExp(req.query.title, 'i') i de includes
         }
         if (req.query.sort) {
@@ -24,7 +25,6 @@ export default async (req, res, next) => {
             .populate('admin_id', 'photo name mail -_id')   // El segundo parametro de populate trae los datos que quiero popular
             .sort(objetoDeOrdenamiento)
         // {} dentro del find es el objeto de busqueda (para filtros)
-        // let allCities = await City.find().select('country city photo smalldescription admin_id').populate('admin_id', 'photo name mail -_id')
         if (allCities.length > 0) {
             return res.status(200).json({
                 succes: true,
