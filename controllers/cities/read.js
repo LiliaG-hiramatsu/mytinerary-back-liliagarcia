@@ -10,7 +10,7 @@ export default async (req, res, next) => {
             objetoDeBuqueda.admin_id = req.query.admin_id
         }
         if (req.query.city) {
-            objetoDeBuqueda.city = new RegExp('^' + req.query.city, 'i')
+            objetoDeBuqueda.city = new RegExp('^' + req.query.city.trim(), 'i')
             //console.log()
             //new RegExp(req.query.title, 'i') i de includes
         }
