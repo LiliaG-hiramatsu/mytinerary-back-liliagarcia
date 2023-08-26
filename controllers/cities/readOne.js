@@ -2,7 +2,7 @@ import City from '../../models/City.js'
 
 export default async (req, res, next) => {
     try {
-        let oneCity = await City.findById(req.params.City_id)
+        let oneCity = await City.findById(req.params.city_id)
         if (oneCity) {
             return res.status(200).json({
                 succes: true,

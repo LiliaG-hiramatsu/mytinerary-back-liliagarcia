@@ -14,7 +14,7 @@ router.post('/', create)
 //READ
 router.get('/', read)
 router.get('/carousel', carousel)
-router.get('/:City_id', readOne)    //Los endpoints que tienen parametros, siempre van al final
+router.get('/:city_id', readOne)    //Los endpoints que tienen parametros, siempre van al final
 
 //UPDATE
 router.put('/:u_id', update)
