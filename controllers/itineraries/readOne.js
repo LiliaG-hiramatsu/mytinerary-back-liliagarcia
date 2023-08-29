@@ -2,7 +2,8 @@ import Itinerary from '../../models/Itinerary.js'
 
 export default async (req, res, next) => {
     try {
-        let oneItinerary = await Itinerary.findById(req.params.Itinerary_id)
+        let { id } = req.params
+        let oneItinerary = await Itinerary.findById(id)
         if (oneItinerary) {
             return res.status(200).json({
                 succes: true,
@@ -12,7 +13,7 @@ export default async (req, res, next) => {
         } else {
             return res.status(404).json({
                 succes: false,
-                message: 'not found',
+                message: 'itinerary not found',
                 response: null
             })
         }

@@ -4,7 +4,7 @@ export default async (req, res, next) => {
     try {
         let newItinerary = await Itinerary.create(req.body)
         return res.status(201).json({
-            succes: true,
+            success: true,
             message: 'itinerary created',
             response: newItinerary._id
         })
