@@ -2,7 +2,8 @@ import Itinerary from '../../models/Itinerary.js'
 
 export default async (req, res, next) => {
     try {
-        let deletedItinerary = await Itinerary.findByIdAndDelete(req.params.id)
+        let { id } = req.params
+        let deletedItinerary = await Itinerary.findByIdAndDelete(id)
         if (deletedItinerary) {
             return res.status(200).json({
                 success: true,
@@ -12,12 +13,11 @@ export default async (req, res, next) => {
         } else {
             return res.status(404).json({
                 success: false,
-                message: 'not found',
+                message: 'itinerary not deleted',
                 response: null
             })
         }
     } catch (error) {
-        console.log(error)
         next(error)
     }
 }
