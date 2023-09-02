@@ -15,6 +15,8 @@ let schema = new Schema({
     photo: { type: String, default: "https://www.cinemascomics.com/wp-content/uploads/2020/06/poder-darth-vader.jpg" },
     password: { type: String, required: true },
     country: { type: String, required: true }
+},{
+    timestamps: true    //Sello de tiempo: agrega dos propiedades de tiempo (fecha de creacion y fecha de modificacion)
 })
 //para crear un modelo de datos utilizo el metodo model pasando como parametros DONDE tengo que crear los docs y con que FORMA
 let User = model(collection, schema)

@@ -16,7 +16,7 @@ export default async (req, res, next) => {
                 select: "city photo admin_id",
                 populate: {
                     path: "admin_id",
-                    select: "name"
+                    select: "photo name"
                 }
             })
             //.populate('city_id', 'city photo -_id')   // El segundo parametro de populate trae los datos que quiero popular
@@ -30,7 +30,7 @@ export default async (req, res, next) => {
         } else {
             return res.status(404).json({
                 success: false,
-                message: 'not found',
+                message: 'itineraries not found',
                 response: null
             })
         }

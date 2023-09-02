@@ -9,14 +9,14 @@ export default async (req, res, next) => {
         ).select('name photo itinerary_id')
         if (updateActivity) {
             return res.status(200).json({
-                succes: true,
+                success: true,
                 message: 'activity updated',
                 response: updateActivity
             })
         } else {
             return res.status(404).json({
-                succes: false,
-                message: 'not found',
+                success: false,
+                message: 'activity not updated',
                 response: null
             })
         }

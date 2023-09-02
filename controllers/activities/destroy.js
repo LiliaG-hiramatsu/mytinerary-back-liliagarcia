@@ -12,7 +12,7 @@ export default async (req, res, next) => {
         } else {
             return res.status(404).json({
                 success: false,
-                message: 'not found',
+                message: 'activity not deleted',
                 response: null
             })
         }

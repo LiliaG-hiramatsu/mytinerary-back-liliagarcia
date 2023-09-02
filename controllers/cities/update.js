@@ -9,13 +9,13 @@ export default async (req, res, next) => {
         ).select('country photo city')
         if (updateCity) {
             return res.status(200).json({
-                succes: true,
+                success: true,
                 message: 'city updated',
                 response: updateCity
             })
         } else {
             return res.status(404).json({
-                succes: false,
+                success: false,
                 message: 'not found',
                 response: null
             })

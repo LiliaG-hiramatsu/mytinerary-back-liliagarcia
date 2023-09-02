@@ -11,12 +11,12 @@ export default async (req, res, next) => {
             return res.status(200).json({
                 success: true,
                 message: 'Itinerary updated',
-                response: one._id
+                response: one
             })
         } else {
             return res.status(404).json({
                 success: false,
-                message: 'Itinerary not found',
+                message: 'Itinerary not updated',
                 response: null
             })
         }

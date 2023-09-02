@@ -5,14 +5,14 @@ export default async (req, res, next) => {
         let oneActivity = await Activity.findById(req.params.Activity_id)
         if (oneActivity) {
             return res.status(200).json({
-                succes: true,
+                success: true,
                 message: 'activity found',
                 response: oneActivity
             })
         } else {
             return res.status(404).json({
-                succes: false,
-                message: 'not found',
+                success: false,
+                message: 'activity not found',
                 response: null
             })
         }

@@ -4,7 +4,7 @@ export default async (req, res, next) => {
     try {
         let newCity = await City.create(req.body)
         return res.status(201).json({
-            succes: true,
+            success: true,
             message: 'city created',
             response: newCity._id
         })

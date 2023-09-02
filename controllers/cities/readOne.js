@@ -5,14 +5,14 @@ export default async (req, res, next) => {
         let oneCity = await City.findById(req.params.city_id)
         if (oneCity) {
             return res.status(200).json({
-                succes: true,
+                success: true,
                 message: 'city found',
                 response: oneCity
             })
         } else {
             return res.status(404).json({
-                succes: false,
-                message: 'not found',
+                success: false,
+                message: 'city not found',
                 response: null
             })
         }

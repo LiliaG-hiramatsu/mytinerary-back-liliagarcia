@@ -7,14 +7,14 @@ export default async (req, res, next) => {
             .populate('itinerary_id', 'name price photo')
         if (allActivities.length > 0) {
             return res.status(200).json({
-                succes: true,
+                success: true,
                 message: 'activities found',
                 response: allActivities
             })
         } else {
             return res.status(404).json({
-                succes: false,
-                message: 'not found',
+                success: false,
+                message: 'activities not found',
                 response: null
             })
         }

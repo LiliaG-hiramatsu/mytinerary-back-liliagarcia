@@ -4,7 +4,7 @@ export default async (req, res, next) => {
     try {
         let newActivity = await Activity.create(req.body)
         return res.status(201).json({
-            succes: true,
+            success: true,
             message: 'activity created',
             response: newActivity._id
         })
