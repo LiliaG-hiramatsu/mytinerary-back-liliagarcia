@@ -28,9 +28,9 @@ app.set('view engine', 'ejs');
 //USE es el metodo necesario para obligar a mi app a que use la funcion cada vez que se realiza una peticion/solicitud
 app.use(logger('dev'));                                   //obligo al servidor a registrar una peticion con el modulo de logger/morgan
 app.use(express.json());                                  //obligo alservidor a manipular/leer json
-app.use(express.urlencoded({ extended: false }));         //obliga al servidor a lerr params(:)/queries(?)
+app.use(express.urlencoded({ extended: false }));         //obliga al servidor a leer params(:)/queries(?)
 //app.use(cookieParser());
-app.use(cors())                                           // obligo al servidor a desbloquear las politicas de cors
+app.use(cors())                                           // obligo al servidor a desbloquear las politicas de cors (pq el front y el back tienen diferentes puertos)
 app.use(express.static(path.join(__dirname, 'public')));  //obligo al servidor a usar los archivos estaticos de la carpeta public
 
 //ROUTER
