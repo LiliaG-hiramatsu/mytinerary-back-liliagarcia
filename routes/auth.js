@@ -4,6 +4,7 @@ import { Router } from "express";
 import register from "../controllers/auth/register.js";
 import signin from "../controllers/auth/signin.js";
 import token from "../controllers/auth/token.js";
+import logout from "../controllers/auth/logout.js";
 
 import validator from "../middlewares/validator.js";
 import existsUser from "../middlewares/existsUser.js";
@@ -41,4 +42,9 @@ authRouter.post('/token',
         //middleware para generar un nuevo token
         isValidToken,   //se puede usar el mismo que el del login
         token)
+
+authRouter.post('/logout',
+        passport.authenticate("jwt", { session: false }),
+        logout)
+
 export default authRouter
