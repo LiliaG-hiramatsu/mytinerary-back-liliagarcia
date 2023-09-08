@@ -3,6 +3,7 @@ import passport from "passport";
 import { Strategy, ExtractJwt } from "passport-jwt";
 
 export default passport.use(    // obligo al pasaporte a usar una estrategia de extraccion de token
+    "jwt",
     new Strategy(
         // depende de objeto de configuracion de la estrategia
         {
