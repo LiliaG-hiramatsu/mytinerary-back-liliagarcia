@@ -14,7 +14,7 @@ router.post('/', create)
 router.get('/', read)
 
 //READONE
-router.get('/:Activity_id', readOne)
+router.get('/:id', readOne)
 
 //UPDATE
 router.put('/:u_id', update)

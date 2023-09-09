@@ -5,13 +5,13 @@ export default async (req, res, next) => {
         let oneItinerary = await Itinerary.findById(req.params.id)
         if (oneItinerary) {
             return res.status(200).json({
-                succes: true,
+                success: true,
                 message: 'itinerary found',
                 response: oneItinerary
             })
         } else {
             return res.status(404).json({
-                succes: false,
+                success: false,
                 message: 'itinerary not found',
                 response: null
             })
