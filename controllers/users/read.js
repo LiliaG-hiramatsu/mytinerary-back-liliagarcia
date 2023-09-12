@@ -5,13 +5,13 @@ export default async (req, res) => {
         let allUsers = await User.find()
         // el metodo find busca todos los usuarios
         return res.status(200).json({
-            succes: true,
+            success: true,
             message: 'users found',
             response: allUsers
         })
     } catch (error) {
         return res.status(400).json({
-            succes: false,
+            success: false,
             message: 'not found',
             response: null
         })

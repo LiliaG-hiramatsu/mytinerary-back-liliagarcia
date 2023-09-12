@@ -8,7 +8,7 @@ let signinSchema = joi.object({
         'string.empty': "mail cannot be empty!", //para cuando se envia VACIO
         'string.email': 'invalid email'
     }),
-    password: joi.string().required().min(8).max(20).messages({
+    password: joi.string().required().alphanum().min(8).max(20).messages({
         'string.min': "password must have at least 8 characters!",
         'string.max': "password must be less than 20 characters!",
         'any.required': "password is required",

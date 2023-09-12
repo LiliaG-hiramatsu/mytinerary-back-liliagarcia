@@ -9,13 +9,13 @@ export default async (req, res) => {
             // true: devuelve el objeto luego de la modificacion
         ).select('name photo mail -_id')
         return res.status(200).json({
-            succes: true,
+            success: true,
             message: 'user updated',
             response: updatedUser
         })
     } catch (error) {
         return res.status(400).json({
-            succes: false,
+            success: false,
             message: 'not updated',
             response: null
         })

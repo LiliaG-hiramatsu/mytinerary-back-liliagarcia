@@ -7,13 +7,13 @@ export default async (req, res, next) => {
         // let oneUser = await User.findById(req.params.id) busca solo por id
         if (oneUser) {
             return res.status(200).json({
-                succes: true,
+                success: true,
                 message: 'user found',
                 response: oneUser
             })
         } else {
             return res.status(404),json({
-                succes: false,
+                success: false,
                 message: 'not found user',
                 response: null
             })
