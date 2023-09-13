@@ -13,7 +13,7 @@ export default passport.use(    // obligo al pasaporte a usar una estrategia de 
         // callback que depende del resultado de la extraccion
         async (jwt_payload, done) => {
             try {
-                let user = await User.findOne({ mail: jwt_payload.mail }, '-_id -__v -password')
+                let user = await User.findOne({ mail: jwt_payload.mail }, '-__v -password')
                 if (user) { // si esxite user, INYECTA al objeto de requerimientos el usuario con la propiedad user
                     return done(null, user) // primer parametro el error(si ocurre) y segundo parametro son los datos del user
                 } else {

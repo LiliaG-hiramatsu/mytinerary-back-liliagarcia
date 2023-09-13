@@ -1,7 +1,7 @@
 import joi from "joi";
 
 let signinSchema = joi.object({
-    mail: joi.string().required().min(8).max(20).email({ minDomainSegments: 2}).messages({
+    mail: joi.string().required().min(8).max(100).email({ minDomainSegments: 2}).messages({
         'string.min': "mail must have at least 8 characters!",
         'string.max': "mail must be less than 20 characters!",
         'any.required': "mail is required", //para cuando NO se envia el dato
