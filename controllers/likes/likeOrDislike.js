@@ -1,4 +1,4 @@
-// agregar un like
+// agregar/sacar like
 import Like from "../../models/Like.js";
 
 export default async(req, res, next) => {

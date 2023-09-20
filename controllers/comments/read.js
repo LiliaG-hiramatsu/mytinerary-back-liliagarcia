@@ -8,7 +8,7 @@ export default async (req, res, next) => {
     }
     let all = await Comment.find(queries)
       .populate("itinerary_id", "name")
-      .populate("user_id", "name mail")
+      .populate("user_id", "name")
       .sort({ updatedAt: 1 })
     if (all.length > 0) {
       return res.status(200).json({
