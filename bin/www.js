@@ -27,7 +27,7 @@ let server = http.createServer(app);  //creo un servidor normalizado con HTTP
 let ready = () => {
   console.log('server ready on port '+port)
   //connect('link de conexion de mongo')
-  connect(process.env.MONGO) //devuelve una promesa
+  connect(process.env.LINK_DB) //devuelve una promesa
     .then(() => console.log('database connected'))
     .catch(err => console.log(err))
 }
